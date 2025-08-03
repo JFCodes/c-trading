@@ -1,0 +1,1 @@
+export { BinanceConnectorClass } from './connector'
