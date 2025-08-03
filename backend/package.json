@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "ts-node ./src/index",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ct-binance-api": "workspace:^",
+    "ct-config": "workspace:^",
+    "ct-data-fetch": "workspace:^",
+    "ct-data-transforms": "workspace:^",
+    "ct-data-types": "workspace:^",
+    "ct-database": "workspace:^",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

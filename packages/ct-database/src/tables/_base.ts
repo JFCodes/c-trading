@@ -17,6 +17,12 @@ export class BaseInterface <DbType extends object> {
     return DATABASE.loadMany<DbType>(query, [])
   }
 
+  getByField <T extends keyof DbType> (field: T, value: DbType[T]): Promise<null | DbType> {
+    const query = `SELECT * FROM ${this.table} WHERE "${String(field)}" = $1`
+    // @ts-ignore
+    return DATABASE.loadOne<DbType>(query, [value])
+  }
+
   insertEntity (entity: DbType, ignoreFieldConflict?: string) {
     const values: Array<string> = []
     const fields: Array<string> = []

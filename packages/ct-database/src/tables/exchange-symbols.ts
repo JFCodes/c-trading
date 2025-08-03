@@ -8,7 +8,11 @@ class Interface extends BaseInterface<T_DB_Symbol> {
     super({ table: DB_TABLES.EXCHANGE_SYMBOLS })
   }
 
-  public async create (symbol: T_BINANCE_Symbol, ignoreConflict?: boolean): Promise<boolean> {
+  public getBySymbol (value: string): Promise<null | T_DB_Symbol> {
+    return this.getByField('symbol', value)
+  }
+
+  public create (symbol: T_BINANCE_Symbol, ignoreConflict?: boolean): Promise<boolean> {
     return this.insertEntity({
       status: symbol.status,
       symbol: symbol.symbol,

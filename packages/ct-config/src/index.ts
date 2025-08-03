@@ -3,6 +3,13 @@ export const CONFIG = {
     BASE_ENDPOINT: 'https://data-api.binance.vision/api/v3/'
   },
 
+  ENDPOINTS: {
+    BACKEND: 'http://localhost:3011',
+    APPS: {
+      TESTING: 'http://localhost:5173'
+    }
+  },
+
   DATABASE: {
     HOST: 'c3qgr3ujgs22q4.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com',
     PORT: 5432,

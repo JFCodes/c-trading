@@ -1,4 +1,4 @@
-import type { T_BINANCE_KLineObject } from 'ct-data-types'
+import type { T_BINANCE_KLineObject, T_DATA_KLinesTimeline } from 'ct-data-types'
 import { E_BINANCE_K_LINES_INTERVALS } from 'ct-data-enums'
 import { BinanceConnectorClass } from 'ct-binance-api'
 
@@ -8,11 +8,7 @@ type Options = {
   days: number
 }
 
-type Result = {
-  [index: number]: T_BINANCE_KLineObject
-}
-
-export async function GetKLinesTimeline (options: Options): Promise<Result> {
+export async function GetKLinesTimeline (options: Options): Promise<T_DATA_KLinesTimeline> {
   const { connector, symbol, days } = options
 
   const expectedResultCount = days * 24 // Using 1hour interval
@@ -42,8 +38,5 @@ export async function GetKLinesTimeline (options: Options): Promise<Result> {
     data.unshift(...kLines)
   }
 
-  return data.reduce<Result>((acc, kLine) => {
-    acc[kLine.openTime] = kLine
-    return acc
-  }, {})
+  return data
 }
